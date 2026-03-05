@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'core/themes/app_colors.dart';
 import 'presentation/views/home_view.dart';
@@ -17,7 +18,10 @@ class PerplexityClone extends StatelessWidget {
     return MaterialApp(
       title: 'Perplexity Clone',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: AppColors.background),
+      theme: ThemeData(
+        textTheme: GoogleFonts.interTextTheme(),
+        scaffoldBackgroundColor: AppColors.background,
+      ),
       home: HomeView(),
     );
   }

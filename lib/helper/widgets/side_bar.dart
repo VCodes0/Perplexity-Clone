@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../core/themes/app_colors.dart';
-import '../../main.dart';
 
 class SideBar extends StatefulWidget {
   const SideBar({super.key});
@@ -12,48 +11,130 @@ class SideBar extends StatefulWidget {
 
 class _SideBarState extends State<SideBar> {
   bool isCollapsed = false;
+
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 100),
-      width: isCollapsed ? mq.width * .050 : mq.width * .090,
-      color: AppColors.sideNav,
-      child: Column(
+    final mq = MediaQuery.of(context).size;
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        double collapsedWidth = mq.width * .06;
+        double expandedWidth = mq.width * .13;
+
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          width: isCollapsed ? collapsedWidth : expandedWidth,
+          color: AppColors.sideNav,
+          child: Column(
+            crossAxisAlignment: isCollapsed
+                ? CrossAxisAlignment.center
+                : CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: mq.height * .025),
+
+              _mainIcon(Icons.auto_awesome_mosaic, () {}, 'NIKA-AI', mq),
+
+              _appIcon(CupertinoIcons.add, () {}, 'HOME', mq),
+              _appIcon(CupertinoIcons.search, () {}, 'SEARCH', mq),
+              _appIcon(Icons.language, () {}, 'DISCOVER', mq),
+              _appIcon(Icons.auto_awesome, () {}, 'AI TOOLS', mq),
+              _appIcon(CupertinoIcons.cloud, () {}, 'CLOUD', mq),
+
+              const Spacer(),
+
+              _appIcon(
+                isCollapsed
+                    ? Icons.keyboard_arrow_right
+                    : Icons.keyboard_arrow_left,
+                () {
+                  setState(() {
+                    isCollapsed = !isCollapsed;
+                  });
+                },
+                'COLLAPSE',
+                mq,
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  InkWell _mainIcon(IconData icon, VoidCallback? onTap, String text, Size mq) {
+    return InkWell(
+      onTap: onTap,
+      child: Row(
+        mainAxisAlignment: isCollapsed
+            ? MainAxisAlignment.center
+            : MainAxisAlignment.start,
         children: [
-          SizedBox(height: mq.height * .025),
-          Icon(
-            Icons.auto_awesome_mosaic,
-            color: AppColors.whiteColor,
-            size: mq.height * .040,
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            margin: EdgeInsets.symmetric(
+              vertical: mq.height * .025,
+              horizontal: isCollapsed ? 0 : mq.width * .01,
+            ),
+            child: Icon(
+              icon,
+              color: AppColors.whiteColor,
+              size: mq.height * .04,
+            ),
           ),
-          _appIcon(CupertinoIcons.add, () {}),
-          _appIcon(CupertinoIcons.search, () {}),
-          _appIcon(Icons.language, () {}),
-          _appIcon(Icons.auto_awesome, () {}),
-          _appIcon(CupertinoIcons.cloud, () {}),
-          const Spacer(),
-          _appIcon(
-            isCollapsed
-                ? Icons.keyboard_arrow_right
-                : Icons.keyboard_arrow_left,
-            () {
-              setState(() {
-                isCollapsed = !isCollapsed;
-              });
-            },
-          ),
+          if (!isCollapsed)
+            Expanded(
+              child: Text(
+                text,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: AppColors.whiteColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: mq.height * .023,
+                ),
+              ),
+            ),
         ],
       ),
     );
   }
 
-  InkWell _appIcon(IconData? icon, void Function()? onTap) {
+  InkWell _appIcon(IconData icon, VoidCallback? onTap, String text, Size mq) {
     return InkWell(
       onTap: onTap,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 100),
-        margin: EdgeInsets.symmetric(vertical: mq.height * .025),
-        child: Icon(icon, color: AppColors.iconGrey, size: mq.height * .025),
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: mq.height * .005),
+        child: Row(
+          mainAxisAlignment: isCollapsed
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.start,
+          children: [
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              margin: EdgeInsets.symmetric(
+                vertical: mq.height * .015,
+                horizontal: isCollapsed ? 0 : mq.width * .01,
+              ),
+              child: Icon(
+                icon,
+                color: AppColors.iconGrey,
+                size: mq.height * .025,
+              ),
+            ),
+
+            if (!isCollapsed)
+              Expanded(
+                child: Text(
+                  text,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: AppColors.whiteColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: mq.height * .02,
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
