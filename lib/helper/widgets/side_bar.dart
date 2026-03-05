@@ -1,9 +1,9 @@
+import 'package:perplexity_clone/core/constants/app_strings.dart';
+import '../../domain/controller/sidebar_controller.dart';
+import '../../core/themes/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:perplexity_clone/core/constants/app_strings.dart';
-import '../../core/themes/app_colors.dart';
-import '../../domain/controller/sidebar_controller.dart';
 import '../../main.dart';
 
 class SideBar extends StatelessWidget {
