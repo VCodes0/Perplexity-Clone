@@ -24,7 +24,7 @@ class SearchSection extends StatelessWidget {
               textAlign: TextAlign.center,
               style: GoogleFonts.ibmPlexMono(
                 color: AppColors.whiteColor,
-                fontSize: mq.width * 0.05,
+                fontSize: mq.width * 0.030,
                 fontWeight: FontWeight.w400,
                 height: 1.2,
                 letterSpacing: -0.5,

@@ -8,7 +8,7 @@ class AppStrings {
   static String searchHintText = 'Search anything...';
   static String focus = 'Focus';
   static String attach = 'Attach';
-  static String appTitle = 'Where Knowledge Begins';
+  static String appTitle = 'Ask Anything Nika AI';
 
   // Links
   static String pro = 'Pro';
