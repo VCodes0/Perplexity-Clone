@@ -17,7 +17,7 @@ class SideBar extends StatelessWidget {
       () => AnimatedContainer(
         duration: const Duration(milliseconds: 100),
 
-        width: controller.isCollapsed.value ? mq.width * .035 : mq.width * .12,
+        width: controller.isCollapsed.value ? mq.width * .045 : mq.width * .13,
 
         color: AppColors.sideNav,
         child: Column(

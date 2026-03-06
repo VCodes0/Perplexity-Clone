@@ -1,5 +1,5 @@
 class AppStrings {
-  static String appName = 'NIKA AI';
+  static String appName = 'NIKA 1.O';
   static String home = 'Home';
   static String search = 'Search';
   static String disCover = 'Discover';
@@ -8,7 +8,7 @@ class AppStrings {
   static String searchHintText = 'Search anything...';
   static String focus = 'Focus';
   static String attach = 'Attach';
-  static String appTitle = 'Ask Anything Nika AI';
+  static String appTitle = 'Ask Anything Nika 1.0';
 
   // Links
   static String pro = 'Pro';
