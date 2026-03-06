@@ -8,10 +8,10 @@ import 'core/themes/app_colors.dart';
 
 late Size responsive;
 
-void main() => runApp(const PerplexityClone());
+void main() => runApp(const NIKA1O());
 
-class PerplexityClone extends StatelessWidget {
-  const PerplexityClone({super.key});
+class NIKA1O extends StatelessWidget {
+  const NIKA1O({super.key});
 
   @override
   Widget build(BuildContext context) {
