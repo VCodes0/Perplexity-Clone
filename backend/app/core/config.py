@@ -1,7 +1,3 @@
-"""
-Application configuration using Pydantic Settings.
-Reads values from .env file automatically.
-"""
 
 import os
 from pydantic_settings import BaseSettings, SettingsConfigDict
