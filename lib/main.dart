@@ -1,6 +1,9 @@
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perplexity_clone/domain/controller/search_controller.dart';
+import 'package:perplexity_clone/presentation/views/result_view.dart';
 import 'presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'core/themes/app_colors.dart';
 
 late Size responsive;
@@ -13,7 +16,7 @@ class PerplexityClone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     responsive = MediaQuery.of(context).size;
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Perplexity Clone',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -21,7 +24,14 @@ class PerplexityClone extends StatelessWidget {
         textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
         scaffoldBackgroundColor: AppColors.background,
       ),
-      home: HomeView(),
+      initialBinding: BindingsBuilder(() {
+        Get.put(QueryController(), permanent: true);
+      }),
+      initialRoute: '/',
+      getPages: [
+        GetPage(name: '/', page: () => const HomeView()),
+        GetPage(name: '/result', page: () => const ResultView()),
+      ],
     );
   }
 }
