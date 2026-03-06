@@ -13,14 +13,14 @@ class SearchInputBox extends StatelessWidget {
       builder: (context, constraints) {
         final double containerWidth = constraints.hasBoundedWidth
             ? constraints.maxWidth * 0.85
-            : mq.width * 0.85;
+            : responsive.width * 0.85;
 
         return Center(
           child: Container(
             width: containerWidth,
             padding: EdgeInsets.symmetric(
-              horizontal: mq.width * 0.02,
-              vertical: mq.height * 0.015,
+              horizontal: responsive.width * 0.02,
+              vertical: responsive.height * 0.015,
             ),
             decoration: BoxDecoration(
               color: AppColors.searchBar,
@@ -33,18 +33,18 @@ class SearchInputBox extends StatelessWidget {
                 TextField(
                   style: TextStyle(
                     color: AppColors.whiteColor,
-                    fontSize: mq.height * 0.02,
+                    fontSize: responsive.height * 0.02,
                   ),
                   decoration: InputDecoration(
                     hintText: AppStrings.searchHintText,
                     hintStyle: TextStyle(
                       color: AppColors.textGrey,
-                      fontSize: mq.height * 0.02,
+                      fontSize: responsive.height * 0.02,
                     ),
                     border: InputBorder.none,
                   ),
                 ),
-                SizedBox(height: mq.height * 0.015),
+                SizedBox(height: responsive.height * 0.015),
                 Row(
                   children: [
                     Row(
@@ -52,40 +52,40 @@ class SearchInputBox extends StatelessWidget {
                         Icon(
                           Icons.auto_awesome,
                           color: AppColors.iconGrey,
-                          size: mq.height * 0.02,
+                          size: responsive.height * 0.02,
                         ),
-                        SizedBox(width: mq.width * 0.01),
+                        SizedBox(width: responsive.width * 0.01),
                         Text(
                           AppStrings.focus,
                           style: TextStyle(
                             color: AppColors.iconGrey,
-                            fontSize: mq.height * 0.018,
+                            fontSize: responsive.height * 0.018,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(width: mq.width * 0.04),
+                    SizedBox(width: responsive.width * 0.04),
                     Row(
                       children: [
                         Icon(
                           CupertinoIcons.add_circled,
                           color: AppColors.iconGrey,
-                          size: mq.height * 0.02,
+                          size: responsive.height * 0.02,
                         ),
-                        SizedBox(width: mq.width * 0.01),
+                        SizedBox(width: responsive.width * 0.01),
                         Text(
                           AppStrings.attach,
                           style: TextStyle(
                             color: AppColors.iconGrey,
-                            fontSize: mq.height * 0.018,
+                            fontSize: responsive.height * 0.018,
                           ),
                         ),
                       ],
                     ),
                     const Spacer(),
                     Container(
-                      height: mq.height * 0.045,
-                      width: mq.height * 0.045,
+                      height: responsive.height * 0.045,
+                      width: responsive.height * 0.045,
                       decoration: const BoxDecoration(
                         color: AppColors.submitButton,
                         shape: BoxShape.circle,
@@ -93,7 +93,7 @@ class SearchInputBox extends StatelessWidget {
                       child: Icon(
                         Icons.arrow_forward,
                         color: AppColors.whiteColor,
-                        size: mq.height * 0.022,
+                        size: responsive.height * 0.022,
                       ),
                     ),
                   ],

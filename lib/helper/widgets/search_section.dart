@@ -14,7 +14,7 @@ class SearchSection extends StatelessWidget {
       builder: (context, constraints) {
         final double maxWidth = constraints.hasBoundedWidth
             ? constraints.maxWidth * 0.9
-            : mq.width * 0.9;
+            : responsive.width * 0.9;
 
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -24,13 +24,13 @@ class SearchSection extends StatelessWidget {
               textAlign: TextAlign.center,
               style: GoogleFonts.ibmPlexMono(
                 color: AppColors.whiteColor,
-                fontSize: mq.width * 0.030,
+                fontSize: responsive.width * 0.030,
                 fontWeight: FontWeight.w400,
                 height: 1.2,
                 letterSpacing: -0.5,
               ),
             ),
-            SizedBox(height: mq.height * 0.04),
+            SizedBox(height: responsive.height * 0.04),
             ConstrainedBox(
               constraints: BoxConstraints(maxWidth: maxWidth),
               child: const SearchInputBox(),

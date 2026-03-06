@@ -17,7 +17,9 @@ class SideBar extends StatelessWidget {
       () => AnimatedContainer(
         duration: const Duration(milliseconds: 100),
 
-        width: controller.isCollapsed.value ? mq.width * .045 : mq.width * .13,
+        width: controller.isCollapsed.value
+            ? responsive.width * .045
+            : responsive.width * .13,
 
         color: AppColors.sideNav,
         child: Column(
@@ -25,7 +27,7 @@ class SideBar extends StatelessWidget {
               ? CrossAxisAlignment.center
               : CrossAxisAlignment.start,
           children: [
-            SizedBox(height: mq.height * .025),
+            SizedBox(height: responsive.height * .025),
 
             _mainIcon(Icons.auto_awesome_mosaic, () {}),
 
@@ -56,10 +58,16 @@ class SideBar extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 100),
         margin: EdgeInsets.symmetric(
-          vertical: mq.height * .025,
-          horizontal: controller.isCollapsed.value ? 0 : mq.width * .010,
+          vertical: responsive.height * .025,
+          horizontal: controller.isCollapsed.value
+              ? 0
+              : responsive.width * .010,
         ),
-        child: Icon(icon, color: AppColors.whiteColor, size: mq.height * .040),
+        child: Icon(
+          icon,
+          color: AppColors.whiteColor,
+          size: responsive.height * .040,
+        ),
       ),
     );
   }
@@ -68,7 +76,7 @@ class SideBar extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: mq.height * .005),
+        padding: EdgeInsets.symmetric(vertical: responsive.height * .005),
         child: Row(
           mainAxisAlignment: controller.isCollapsed.value
               ? MainAxisAlignment.center
@@ -77,13 +85,15 @@ class SideBar extends StatelessWidget {
             AnimatedContainer(
               duration: const Duration(milliseconds: 100),
               margin: EdgeInsets.symmetric(
-                vertical: mq.height * .015,
-                horizontal: controller.isCollapsed.value ? 0 : mq.width * .010,
+                vertical: responsive.height * .015,
+                horizontal: controller.isCollapsed.value
+                    ? 0
+                    : responsive.width * .010,
               ),
               child: Icon(
                 icon,
                 color: AppColors.iconGrey,
-                size: mq.height * .025,
+                size: responsive.height * .025,
               ),
             ),
 
@@ -95,7 +105,7 @@ class SideBar extends StatelessWidget {
                   style: TextStyle(
                     color: AppColors.whiteColor,
                     fontWeight: FontWeight.bold,
-                    fontSize: mq.height * .020,
+                    fontSize: responsive.height * .020,
                   ),
                 ),
               ),
