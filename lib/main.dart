@@ -1,10 +1,10 @@
-import 'package:google_fonts/google_fonts.dart';
-import 'package:perplexity_clone/domain/controller/search_controller.dart';
-import 'package:perplexity_clone/presentation/views/result_view.dart';
-import 'presentation/views/home_view.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'core/themes/app_colors.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:perplexity_clone/presentation/views/home_view.dart';
+import 'package:perplexity_clone/presentation/views/result_view.dart';
+import 'package:perplexity_clone/domain/controller/search_controller.dart';
 
 late Size responsive;
 
